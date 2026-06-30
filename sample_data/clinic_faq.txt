@@ -1,0 +1,14 @@
+What are your clinic hours?
+We are open Monday to Friday from 9am to 5pm. We are closed on weekends and public holidays.
+
+Do you accept walk-ins?
+Yes we accept walk-ins but appointments are preferred. Walk-in wait times can be up to 2 hours.
+
+What insurance do you accept?
+We accept Blue Cross, Aetna, United Healthcare, and Medicare. Please bring your insurance card.
+
+How do I cancel an appointment?
+You can cancel by calling us at 555-1234 or through this chat assistant at least 24 hours in advance.
+
+Where are you located?
+We are located at 123 Medical Drive, Suite 100. Free parking is available in the lot behind the building.
