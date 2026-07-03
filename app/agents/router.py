@@ -5,8 +5,6 @@ from langchain_groq import ChatGroq
 from app.config import GROQ_API_KEY, GROQ_MODEL
 from app.agents.state import AgentState
 
-import os
-
 _llm = None
 
 def get_llm():
@@ -15,12 +13,8 @@ def get_llm():
         _llm = ChatGroq(api_key=GROQ_API_KEY, model_name=GROQ_MODEL, temperature=0)
     return _llm
 
-
 def router_node(state: AgentState) -> AgentState:
-    """Reads the patient message and classifies the intent."""
-    
     message = state["message"]
-    
     prompt = f"""You are an intent classifier for a medical clinic assistant.
 Classify the patient's message into exactly one of these intents:
 - faq: patient is asking a general question about the clinic (hours, location, insurance, services, policies)
@@ -32,13 +26,9 @@ Reply with ONLY one word: faq, scheduling, or out_of_scope
 Patient message: {message}
 
 Intent:"""
-
     response = get_llm().invoke(prompt)
     intent = response.content.strip().lower()
-    
     if intent not in ["faq", "scheduling", "out_of_scope"]:
         intent = "out_of_scope"
-    
-    print(f"Router classified '{message}' as: {intent}")
-   
+    print(f"Router classified as: {intent}")
     return {**state, "intent": intent}
