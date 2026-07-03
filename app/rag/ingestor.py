@@ -1,5 +1,3 @@
-# app/rag/ingestor.py
-
 from langchain_community.document_loaders import (
     PyPDFLoader, #reads pdf files
     Docx2txtLoader, #reads word docs 

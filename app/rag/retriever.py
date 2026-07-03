@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -13,39 +15,42 @@ from app.config import (
     CLINIC_ID,
 )
 
-# setting up connections 
-embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
-client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
+_embeddings = None
+_client = None
+_llm = None
 
-llm = ChatGroq(
-    api_key=GROQ_API_KEY,
-    model_name=GROQ_MODEL,
-    temperature=0.2, #low temp will be more factual 
-)
+def get_embeddings():
+    global _embeddings
+    if _embeddings is None:
+        _embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+    return _embeddings
 
-def search_faq(query: str, clinic_id: str = CLINIC_ID, top_k: int = 3): 
+def get_client():
+    global _client
+    if _client is None:
+        _client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
+    return _client
+
+def get_llm():
+    global _llm
+    if _llm is None:
+        _llm = ChatGroq(api_key=GROQ_API_KEY, model_name=GROQ_MODEL, temperature=0.2)
+    return _llm
+
+def search_faq(query: str, clinic_id: str = CLINIC_ID, top_k: int = 3):
+    query_vector = get_embeddings().embed_query(query)
     
-    query_vector = embeddings.embed_query(query) # convert question to numbers
-    
-    # only search chunks that belong to this clinic
     clinic_filter = Filter(
-        must=[
-            FieldCondition(
-                key="clinic_id",
-                match=MatchValue(value=clinic_id)
-            )
-        ]
+        must=[FieldCondition(key="clinic_id", match=MatchValue(value=clinic_id))]
     )
     
-    # search most similar chunks
-    results = client.search(
+    results = get_client().search(
         collection_name=QDRANT_COLLECTION,
         query_vector=query_vector,
         query_filter=clinic_filter,
-        limit=top_k, # return top 3 most relevant chunks
+        limit=top_k,
     )
-    
-    return results 
+    return results
 
 def answer_question(query: str, clinic_id: str = CLINIC_ID):
     
@@ -77,7 +82,7 @@ PATIENT QUESTION:
 
 ANSWER:"""
     
-    response = llm.invoke(prompt)
+    response = get_llm().invoke(prompt)
     
     return {
         "answer": response.content,
