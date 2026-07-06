@@ -5,3 +5,6 @@ __pycache__/
 .env
 .vscode/
 .DS_Store
+credentials.json
+token.json
+temp_uploads/

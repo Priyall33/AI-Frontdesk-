@@ -8,9 +8,9 @@ from googleapiclient.discovery import build
 # defines what we are allowed to do with the calendar
 SCOPES = ["https://www.googleapis.com/auth/calendar"]
 
-# paths to credentials files
-CREDENTIALS_FILE = "credentials.json"   # downloaded from Google Cloud
-TOKEN_FILE = "token.json"               # created automatically after first login
+
+CREDENTIALS_FILE = "credentials.json"   
+TOKEN_FILE = "token.json"               
 
 def get_calendar_service():
     creds = None

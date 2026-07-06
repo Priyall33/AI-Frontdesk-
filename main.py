@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import CLINIC_ID, APP_ENV
-from app.api.routes import router # import the router
+from app.api.routes import router 
 
 app = FastAPI(
     title="AI FrontDesk",

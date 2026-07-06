@@ -5,6 +5,15 @@ from app.agents.faq_agent import faq_node
 from app.agents.fallback_agent import fallback_node
 from app.agents.scheduling_agent import scheduling_node
 
+def pre_route(state: AgentState) -> str:
+    # if previous intent was scheduling, stay in scheduling flow
+    if state.get("previous_intent") == "scheduling":
+        return "scheduling"
+    entities = state.get("entities", {})
+    if any(entities.get(k) for k in ["patient_name", "date", "time", "reason"]):
+        return "scheduling"
+    return "router"
+
 def route_intent(state: AgentState) -> str:
     intent = state.get("intent", "out_of_scope")
     if intent == "faq":
@@ -20,7 +29,14 @@ graph_builder.add_node("faq", faq_node)
 graph_builder.add_node("scheduling", scheduling_node)
 graph_builder.add_node("fallback", fallback_node)
 
-graph_builder.set_entry_point("router")
+graph_builder.set_conditional_entry_point(
+    pre_route,
+    {
+        "router": "router",
+        "scheduling": "scheduling",
+    }
+)
+
 graph_builder.add_conditional_edges(
     "router",
     route_intent,
@@ -43,6 +59,7 @@ def run_agent(
     clinic_id: str = "clinic_001",
     chat_history: list = None,
     entities: dict = None,
+    previous_intent: str = "",
 ) -> dict:
     initial_state: AgentState = {
         "message": message,
@@ -54,6 +71,7 @@ def run_agent(
         "found": False,
         "chat_history": chat_history or [],
         "entities": entities or {},
+        "previous_intent": previous_intent,
     }
     final_state = graph.invoke(initial_state)
     return {

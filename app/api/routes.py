@@ -4,7 +4,11 @@ import shutil
 import os
 from app.rag.ingestor import ingest_file
 from app.agents.graph import run_agent
-from app.agents.memory import get_history, update_history, get_entities, update_entities
+from app.agents.memory import (
+    get_history, update_history,
+    get_entities, update_entities,
+    get_session_intent, update_session_intent,
+)
 from app.config import CLINIC_ID
 
 router = APIRouter()
@@ -36,24 +40,23 @@ async def chat(request: ChatRequest):
     if not request.message.strip():
         raise HTTPException(status_code=400, detail="Message cannot be empty")
 
-    # load existing history and entities for this session
     history = get_history(request.session_id)
     entities = get_entities(request.session_id)
+    previous_intent = get_session_intent(request.session_id)
 
-    # run the agent graph with session context
     result = run_agent(
         message=request.message,
         session_id=request.session_id,
         clinic_id=request.clinic_id,
         chat_history=history,
         entities=entities,
+        previous_intent=previous_intent,
     )
 
-    # save the new messages to session memory
     update_history(request.session_id, "patient", request.message)
     update_history(request.session_id, "assistant", result["answer"])
+    update_session_intent(request.session_id, result["intent"] or "")
 
-    # save any partially collected entities for multi-turn scheduling
     if result.get("entities") is not None:
         update_entities(request.session_id, result["entities"])
 

@@ -19,7 +19,6 @@ import uuid #unique id for each chunk
 import os
 
 
-# This downloads the model the first time then it's cached locally
 embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 
 # Connect to Qdrant
@@ -43,7 +42,7 @@ def create_collection_if_not_exists():
 
 def load_and_split(file_path: str):
     
-    ext = os.path.splitext(file_path)[1].lower() # get file extension e.g .pdf .txt
+    ext = os.path.splitext(file_path)[1].lower() 
     
     # pick the right loader based on file type
     if ext == ".pdf":
@@ -61,29 +60,29 @@ def load_and_split(file_path: str):
     
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,   # each chunk max 500 characters
-        chunk_overlap=50, # overlap so context isnt lost at edges
+        chunk_overlap=50,
     )
-    
+
     return splitter.split_documents(documents) # returns list of chunks
 
 def ingest_file(file_path: str, clinic_id: str = CLINIC_ID):
     
-    create_collection_if_not_exists() # make sure collection exists before storing
+    create_collection_if_not_exists() 
     
-    chunks = load_and_split(file_path) # load and split the file into chunks
+    chunks = load_and_split(file_path) 
     
-    points = [] # list to store all the chunks we will upload to qdrant
+    points = [] 
     
     for chunk in chunks:
-        embedding = embeddings.embed_query(chunk.page_content) # convert chunk text to numbers
+        embedding = embeddings.embed_query(chunk.page_content) 
         
         point = PointStruct(
-            id=str(uuid.uuid4()),       # unique id for this chunk
-            vector=embedding,            # the numbers representing meaning
+            id=str(uuid.uuid4()),       
+            vector=embedding,           
             payload={
-                "text": chunk.page_content,      # original text so we can show it later
-                "clinic_id": clinic_id,           # which clinic this belongs to
-                "source": os.path.basename(file_path), # filename e.g clinic_faq.pdf
+                "text": chunk.page_content,      
+                "clinic_id": clinic_id,           
+                "source": os.path.basename(file_path), 
             }
         )
         points.append(point)
@@ -95,4 +94,4 @@ def ingest_file(file_path: str, clinic_id: str = CLINIC_ID):
     )
     
     print(f" Ingested {len(points)} chunks from {os.path.basename(file_path)}")
-    return len(points) # return count so the API can confirm how many chunks were stored
+    return len(points)

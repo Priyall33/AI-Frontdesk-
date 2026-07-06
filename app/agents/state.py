@@ -5,6 +5,7 @@ class AgentState(TypedDict):
     session_id: str
     clinic_id: str
     intent: Optional[str]
+    previous_intent: Optional[str]
     answer: Optional[str]
     sources: Optional[List[str]]
     found: Optional[bool]
