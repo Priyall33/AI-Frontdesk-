@@ -1,4 +1,3 @@
-```
 # AI FrontDesk
 
 An AI-powered virtual receptionist for medical clinics. Patients can ask questions about the clinic or book appointments through a chat interface.
@@ -22,25 +21,10 @@ An AI-powered virtual receptionist for medical clinics. Patients can ask questio
 | Calendar | Google Calendar API |
 | Chat UI | Streamlit |
 
-## Project Structure
-
-```
-ai-frontdesk/
-├── app/
-│   ├── agents/        # LangGraph agents (router, FAQ, scheduling, fallback)
-│   ├── api/           # FastAPI routes
-│   ├── calendar/      # Google Calendar integration
-│   └── rag/           # Document ingestion and retrieval
-├── sample_data/       # Sample FAQ documents
-├── tests/             # Unit tests
-├── main.py            # FastAPI entry point
-└── streamlit_app.py   # Chat UI
-```
-
 ## How to Run
 
-**1. Clone and set up environment**
-```
+**1. Clone and set up**
+```bash
 git clone https://github.com/Priyall33/AI-Frontdesk-.git
 cd AI-Frontdesk-
 conda create -n frontdesk python=3.11
@@ -48,9 +32,7 @@ conda activate frontdesk
 pip install -r requirements.txt
 ```
 
-**2. Set up environment variables**
-
-Create a `.env` file in the root:
+**2. Create a `.env` file in the root**
 ```
 GROQ_API_KEY=your-groq-key
 GROQ_MODEL=llama-3.1-8b-instant
@@ -62,35 +44,29 @@ APP_ENV=development
 ```
 
 **3. Start Qdrant**
-```
+```bash
 docker start qdrant
 ```
 
 **4. Start the API**
-```
+```bash
 python -m uvicorn main:app --reload
 ```
 
 **5. Upload clinic FAQ**
 
-Go to http://localhost:8000/docs and use the /api/ingest endpoint to upload a FAQ document.
+Go to `http://localhost:8000/docs` and use `/api/ingest` to upload a FAQ document.
 
 **6. Start the chat UI**
-```
+```bash
 python -m streamlit run streamlit_app.py
 ```
 
 ## Architecture
 
 ```
-Patient Message
-      │
-      ▼
-   Router Agent
-      │
-      ├── intent: faq ──────────► FAQ Agent (searches Qdrant, answers with Groq)
-      │
-      ├── intent: scheduling ───► Scheduling Agent (extracts entities, books Google Calendar)
-      │
-      └── intent: out_of_scope ─► Fallback Agent
+Patient Message → Router Agent
+                      ├── faq         → FAQ Agent (Qdrant + Groq)
+                      ├── scheduling  → Scheduling Agent (Google Calendar)
+                      └── out_of_scope → Fallback Agent
 ```
