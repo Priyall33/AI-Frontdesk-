@@ -4,8 +4,6 @@ import uuid
 import base64
 import os
 
-from app.config import API_KEY 
-
 API_KEY = os.getenv("API_KEY", "")
 API_URL = "http://localhost:8000/api"
 
@@ -20,11 +18,9 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 * { font-family: 'Space Grotesk', sans-serif !important; }
 
-/* full teal background */
 .stApp { background: #16A4B2; }
 #MainMenu, footer, header { visibility: hidden; }
 
-/* pop-down animation */
 @keyframes popDown {
     0%   { opacity: 0; transform: translateY(-50px) scale(0.95); }
     65%  { transform: translateY(6px) scale(1.01); }
@@ -36,7 +32,6 @@ st.markdown("""
     max-width: 680px !important;
 }
 
-/* ALL chat bubbles match background */
 .stChatMessage {
     background: rgba(255,255,255,0.12) !important;
     border-radius: 18px !important;
@@ -47,23 +42,16 @@ st.markdown("""
 .stChatMessage li,
 .stChatMessage span { color: white !important; }
 
-/* caption */
 .stCaption { color: rgba(255,255,255,0.55) !important; font-size: 0.72rem !important; }
 
-/* input bar — white pill, no send button */
 [data-testid="stBottom"] {
     padding: 1rem 0 2rem 0 !important;
     width: 100% !important;
     left: 0 !important;
     right: 0 !important;
 }
-[data-testid="stBottomBlockContainer"] {
-    padding: 0 !important;
-}
-.stChatInput {
-    padding: 0 !important;
-    width: 100% !important;
-}
+[data-testid="stBottomBlockContainer"] { padding: 0 !important; }
+.stChatInput { padding: 0 !important; width: 100% !important; }
 .stChatInput > div {
     border-radius: 50px !important;
     border: none !important;
@@ -79,13 +67,10 @@ st.markdown("""
     background: transparent !important;
 }
 .stChatInput input::placeholder { color: #9bb5b8 !important; }
-
-/* hide send button */
 [data-testid="stChatInputSubmitButton"] { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
-# header
 st.markdown("""
 <div style="text-align:center; padding: 1.5rem 0 2rem 0;">
     <div style="
@@ -125,9 +110,11 @@ if "session_id" not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
 if "welcomed" not in st.session_state:
     st.session_state.welcomed = False
+if "patient_name" not in st.session_state:
+    st.session_state.patient_name = None
 
 if not st.session_state.welcomed:
-    welcome = "Hello! I'm your FrontDesk AI assistant. I can answer questions about the clinic or help you book an appointment. How can I help you today?"
+    welcome = "Hello! Welcome to the clinic. May I have your name please?"
     st.session_state.messages.append({"role": "assistant", "content": welcome})
     st.session_state.welcomed = True
 
@@ -146,24 +133,32 @@ if prompt := st.chat_input("Ask about the clinic or book an appointment..."):
     with st.chat_message("user"):
         st.write(prompt)
 
-    with st.spinner(""):
-        try:
-            response = requests.post(
-                f"{API_URL}/chat",
-                json={"message": prompt, "session_id": st.session_state.session_id},
-                headers={"x-api-key": API_KEY},
-            )
-            data = response.json()
-            answer = data["answer"]
-            sources = data.get("sources", [])
-        except Exception:
-            answer = "I'm having trouble connecting. Please try again."
-            sources = []
+    # first message after welcome = patient's name
+    if st.session_state.patient_name is None:
+        st.session_state.patient_name = prompt.strip()
+        answer = f"Hey {st.session_state.patient_name}! How can I assist you today?"
+        st.session_state.messages.append({"role": "assistant", "content": answer})
+        with st.chat_message("assistant", avatar=MD_AVATAR):
+            st.write(answer)
+        st.rerun()
+    else:
+        with st.spinner(""):
+            try:
+                response = requests.post(
+                    f"{API_URL}/chat",
+                    json={"message": prompt, "session_id": st.session_state.session_id},
+                    headers={"x-api-key": API_KEY},
+                )
+                data = response.json()
+                answer = data["answer"]
+                sources = data.get("sources", [])
+            except Exception:
+                answer = "I'm having trouble connecting. Please try again."
+                sources = []
 
-    with st.chat_message("assistant", avatar=MD_AVATAR):
-        st.write(answer)
-        if sources:
-            st.caption(f"Source: {', '.join(sources)}")
+        with st.chat_message("assistant", avatar=MD_AVATAR):
+            st.write(answer)
+            if sources:
+                st.caption(f"Source: {', '.join(sources)}")
 
-    st.session_state.messages.append({"role": "assistant", "content": answer, "sources": sources})
-    
+        st.session_state.messages.append({"role": "assistant", "content": answer, "sources": sources})

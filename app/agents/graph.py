@@ -6,11 +6,11 @@ from app.agents.fallback_agent import fallback_node
 from app.agents.scheduling_agent import scheduling_node
 
 def pre_route(state: AgentState) -> str:
-    # if previous intent was scheduling, stay in scheduling flow
     if state.get("previous_intent") == "scheduling":
         return "scheduling"
     entities = state.get("entities", {})
-    if any(entities.get(k) for k in ["patient_name", "date", "time", "reason"]):
+    has_pending_entities = any(entities.get(k) for k in ["patient_name", "date", "time", "reason"])
+    if state.get("previous_intent") == "scheduling" or has_pending_entities:
         return "scheduling"
     return "router"
 
