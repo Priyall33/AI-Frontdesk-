@@ -5,8 +5,8 @@ An AI-powered virtual receptionist for medical clinics. Patients can ask questio
 ## What it does
 
 - Answers clinic FAQ questions using uploaded documents (RAG pipeline)
-- Books, reschedules, and cancels appointments via Google Calendar
-- Multi-turn conversations — remembers context within a session
+- Books appointments via Google Calendar
+- Maintains scheduling context across a conversation using session memory 
 - Routes messages intelligently between agents using LangGraph
 
 ## Tech Stack
