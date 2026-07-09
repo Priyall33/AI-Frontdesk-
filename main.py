@@ -11,9 +11,9 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["http://localhost:8501"],  # Streamlit UI 
+    allow_methods=["POST", "GET"],
+    allow_headers=["x-api-key", "Content-Type"],
 )
 
 app.include_router(router, prefix="/api")

@@ -18,3 +18,6 @@ QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "clinic_faqs")
 # App
 CLINIC_ID = os.getenv("CLINIC_ID", "clinic_001")
 APP_ENV = os.getenv("APP_ENV", "development")
+
+# API Security 
+API_KEY = os.getenv("API_KEY")

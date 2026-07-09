@@ -2,7 +2,11 @@ import streamlit as st
 import requests
 import uuid
 import base64
+import os
 
+from app.config import API_KEY 
+
+API_KEY = os.getenv("API_KEY", "")
 API_URL = "http://localhost:8000/api"
 
 st.set_page_config(page_title="AIFRONTDESK", page_icon="🏥", layout="centered")
@@ -147,6 +151,7 @@ if prompt := st.chat_input("Ask about the clinic or book an appointment..."):
             response = requests.post(
                 f"{API_URL}/chat",
                 json={"message": prompt, "session_id": st.session_state.session_id},
+                headers={"x-api-key": API_KEY},
             )
             data = response.json()
             answer = data["answer"]
