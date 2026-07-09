@@ -26,9 +26,11 @@ Reply with ONLY one word: faq, scheduling, or out_of_scope
 Patient message: {message}
 
 Intent:"""
-    response = get_llm().invoke(prompt)
-    intent = response.content.strip().lower()
-    if intent not in ["faq", "scheduling", "out_of_scope"]:
+    try:
+        response = get_llm().invoke(prompt)
+        intent = response.content.strip().lower()
+        if intent not in ["faq", "scheduling", "out_of_scope"]:
+            intent = "out_of_scope"
+    except Exception:
         intent = "out_of_scope"
-    print(f"Router classified as: {intent}")
     return {**state, "intent": intent}

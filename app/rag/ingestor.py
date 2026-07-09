@@ -8,6 +8,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter  # tool spli
 from langchain_huggingface import HuggingFaceEmbeddings
 from qdrant_client import QdrantClient #connects to qdrant database 
 from qdrant_client.models import Distance, VectorParams, PointStruct
+from langchain_core.documents import Document
 from app.config import (
     QDRANT_HOST,
     QDRANT_PORT,
@@ -15,6 +16,7 @@ from app.config import (
     EMBEDDING_MODEL,
     CLINIC_ID,
 )
+import pandas as pd
 import uuid #unique id for each chunk 
 import os
 
@@ -44,6 +46,11 @@ def load_and_split(file_path: str):
     
     ext = os.path.splitext(file_path)[1].lower() 
     
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size=500,   # each chunk max 500 characters
+        chunk_overlap=50,
+    )
+
     # pick the right loader based on file type
     if ext == ".pdf":
         loader = PyPDFLoader(file_path)
@@ -52,16 +59,19 @@ def load_and_split(file_path: str):
     elif ext == ".txt":
         loader = TextLoader(file_path)
     elif ext == ".csv":
-        loader = CSVLoader(file_path)
+        loader = CSVLoader(file_path, encoding="latin-1")
+    elif ext == ".xlsx":
+        # read excel, convert each row to a text document
+        df = pd.read_excel(file_path)
+        documents = []
+        for _, row in df.iterrows():
+            text = " | ".join(f"{col}: {val}" for col, val in row.items() if pd.notna(val))
+            documents.append(Document(page_content=text, metadata={"source": file_path}))
+        return splitter.split_documents(documents)
     else:
         raise ValueError(f"Unsupported file type: {ext}") # crash with clear message if unsupported
     
     documents = loader.load() # read file and extract all text
-    
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,   # each chunk max 500 characters
-        chunk_overlap=50,
-    )
 
     return splitter.split_documents(documents) # returns list of chunks
 

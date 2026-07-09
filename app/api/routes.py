@@ -23,16 +23,17 @@ class ChatRequest(BaseModel):
 
 @router.post("/ingest")
 async def ingest_faq(file: UploadFile = File(...)):
-    allowed = [".pdf", ".txt", ".docx", ".csv"]
+    allowed = [".pdf", ".txt", ".docx", ".csv", ".xlsx"]
     ext = os.path.splitext(file.filename)[1].lower()
     if ext not in allowed:
         raise HTTPException(status_code=400, detail=f"File type {ext} not supported")
-    temp_path = os.path.join(UPLOAD_DIR, file.filename)
+    safe_filename = os.path.basename(file.filename)
+    temp_path = os.path.join(UPLOAD_DIR, safe_filename)
     with open(temp_path, "wb") as f:
         shutil.copyfileobj(file.file, f)
     count = ingest_file(temp_path)
     os.remove(temp_path)
-    return {"status": "success", "filename": file.filename, "chunks_stored": count}
+    return {"status": "success", "filename": safe_filename, "chunks_stored": count}
 
 
 @router.post("/chat")
