@@ -3,6 +3,8 @@ import requests
 import uuid
 import base64
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 API_KEY = os.getenv("API_KEY", "")
 API_URL = "http://localhost:8000/api"
@@ -136,6 +138,12 @@ if prompt := st.chat_input("Ask about the clinic or book an appointment..."):
     # first message after welcome = patient's name
     if st.session_state.patient_name is None:
         st.session_state.patient_name = prompt.strip()
+        # send name to backend so scheduling agent knows it
+        requests.post(
+            f"{API_URL}/chat",
+            json={"message": f"My name is {prompt.strip()}", "session_id": st.session_state.session_id},
+            headers={"x-api-key": API_KEY},
+        )
         answer = f"Hey {st.session_state.patient_name}! How can I assist you today?"
         st.session_state.messages.append({"role": "assistant", "content": answer})
         with st.chat_message("assistant", avatar=MD_AVATAR):

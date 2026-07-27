@@ -45,3 +45,246 @@
 2026-07-09 13:22:27,526 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-07-09 13:22:27,934 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-07-09 13:22:27,937 | INFO | CHAT | session=4ad83b80-0175-4505-a835-58e5c911a885 | intent=scheduling | message=what avaible time do u have for appointment 
+2026-07-10 09:08:51,798 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:08:52,035 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:08:52,039 | INFO | CHAT | session=c0f426e4-452d-485e-91fd-83c183bfb5d0 | intent=scheduling | message=book appointment 
+2026-07-10 09:09:08,818 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:09:08,821 | INFO | CHAT | session=c0f426e4-452d-485e-91fd-83c183bfb5d0 | intent=None | message=july 12 at 3pm 
+2026-07-10 09:09:12,280 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:09:12,283 | INFO | CHAT | session=c0f426e4-452d-485e-91fd-83c183bfb5d0 | intent=None | message=anjali 
+2026-07-10 09:09:21,042 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:09:21,045 | INFO | CHAT | session=c0f426e4-452d-485e-91fd-83c183bfb5d0 | intent=None | message=monday at 3
+2026-07-10 09:09:32,321 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:09:32,480 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-10 09:09:32,704 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-10 09:09:33,123 | INFO | CHAT | session=c0f426e4-452d-485e-91fd-83c183bfb5d0 | intent=None | message=july 14 at 3
+2026-07-10 09:09:39,066 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 09:09:39,070 | INFO | Use pytorch device_name: mps
+2026-07-10 09:09:39,071 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-10 09:09:41,295 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-10 09:09:41,296 | INFO | CHAT | session=c0f426e4-452d-485e-91fd-83c183bfb5d0 | intent=faq | message=great thanks 
+2026-07-10 10:03:10,362 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:03:11,037 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-10 10:03:11,270 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:03:11,274 | INFO | CHAT | session=37755932-a6b3-4a11-8eac-c140c814ad05 | intent=faq | message=what are your hours and do you accept insurance 
+2026-07-10 10:33:06,955 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:33:07,522 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-10 10:33:08,079 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:33:08,081 | INFO | CHAT | session=4504a0ce-a66a-4513-98e7-d74a2a228c1e | intent=faq | message=what are your hours and do you accept insurance ? 
+2026-07-10 10:33:20,135 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:33:20,557 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:33:20,559 | INFO | CHAT | session=4504a0ce-a66a-4513-98e7-d74a2a228c1e | intent=scheduling | message=can i book an appointment ? 
+2026-07-10 10:33:31,282 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:33:31,453 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-10 10:33:31,777 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-10 10:33:32,158 | INFO | CHAT | session=4504a0ce-a66a-4513-98e7-d74a2a228c1e | intent=None | message=priyal, july 14 at 3
+2026-07-10 10:34:10,875 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:34:10,880 | INFO | CHAT | session=4504a0ce-a66a-4513-98e7-d74a2a228c1e | intent=out_of_scope | message=hows the weather today 
+2026-07-10 10:34:26,746 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 10:34:26,752 | INFO | CHAT | session=4504a0ce-a66a-4513-98e7-d74a2a228c1e | intent=out_of_scope | message=thanks 
+2026-07-14 12:24:56,199 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:24:56,589 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:24:56,593 | INFO | CHAT | session=95f9b645-b142-4e75-98eb-13b566d0ed39 | intent=scheduling | message=can i book an appointment 
+2026-07-14 12:25:03,834 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:25:03,837 | INFO | CHAT | session=95f9b645-b142-4e75-98eb-13b566d0ed39 | intent=None | message=jai shanti 
+2026-07-14 12:25:17,090 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:25:17,094 | INFO | CHAT | session=95f9b645-b142-4e75-98eb-13b566d0ed39 | intent=None | message=18th july 
+2026-07-14 12:25:21,911 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:25:21,914 | INFO | CHAT | session=95f9b645-b142-4e75-98eb-13b566d0ed39 | intent=None | message=at 3? 
+2026-07-14 12:29:03,183 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:29:03,556 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:29:03,560 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=scheduling | message=i want to know your hours, if you accept insruance
+2026-07-14 12:29:12,097 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:29:12,099 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=None | message=devanshi vyas 
+2026-07-14 12:29:18,801 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:29:18,804 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=None | message=july 18 at 3pm 
+2026-07-14 12:29:46,296 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:29:46,300 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=None | message=3?
+2026-07-14 12:29:56,428 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:29:56,431 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=None | message=july 18 at 4 
+2026-07-14 12:30:03,723 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:03,726 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=None | message=july 18 
+2026-07-14 12:30:05,819 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:05,823 | INFO | CHAT | session=faadc730-be61-4039-9a47-a47b48aa74de | intent=None | message=3
+2026-07-14 12:30:18,780 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:19,148 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:19,150 | INFO | CHAT | session=606b6756-b081-467d-862e-d4ef5172b9fa | intent=scheduling | message=book an appointment 
+2026-07-14 12:30:24,040 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:24,043 | INFO | CHAT | session=606b6756-b081-467d-862e-d4ef5172b9fa | intent=None | message=devanshi vyas 
+2026-07-14 12:30:30,092 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:30,095 | INFO | CHAT | session=606b6756-b081-467d-862e-d4ef5172b9fa | intent=None | message=july 17 at 5 
+2026-07-14 12:30:32,746 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:30:32,749 | INFO | CHAT | session=606b6756-b081-467d-862e-d4ef5172b9fa | intent=None | message=5
+2026-07-14 12:36:29,795 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:36:30,134 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:36:30,137 | INFO | CHAT | session=7b8c8fc5-a2b2-4f6e-9611-8171ab40accc | intent=scheduling | message=book appointment 
+2026-07-14 12:36:34,590 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:36:34,593 | INFO | CHAT | session=7b8c8fc5-a2b2-4f6e-9611-8171ab40accc | intent=None | message=devi 
+2026-07-14 12:36:46,895 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 12:36:46,900 | INFO | CHAT | session=7b8c8fc5-a2b2-4f6e-9611-8171ab40accc | intent=None | message=july 23 at 3pm 
+2026-07-27 13:32:21,528 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:32:21,924 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:32:21,926 | INFO | CHAT | session=f0f235e5-323c-47da-8db8-6d42948634f5 | intent=scheduling | message=i would like to book appointment 
+2026-07-27 13:32:31,186 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:32:31,189 | INFO | CHAT | session=f0f235e5-323c-47da-8db8-6d42948634f5 | intent=None | message=priyal vas
+2026-07-27 13:32:45,765 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:32:45,770 | INFO | CHAT | session=f0f235e5-323c-47da-8db8-6d42948634f5 | intent=None | message=august 5th at 3pm 
+2026-07-27 13:35:47,202 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:35:47,862 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:35:47,870 | INFO | CHAT | session=b9922dcf-4506-4fdd-b7b1-b5d7ff5a9da9 | intent=scheduling | message=i want to book appointment 
+2026-07-27 13:35:53,357 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:35:53,359 | INFO | CHAT | session=b9922dcf-4506-4fdd-b7b1-b5d7ff5a9da9 | intent=None | message=priyal vyas 
+2026-07-27 13:40:41,617 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:40:41,638 | INFO | Use pytorch device_name: mps
+2026-07-27 13:40:41,638 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 13:40:43,371 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:40:43,372 | INFO | CHAT | session=c8921f10-ef1c-4a4f-9989-a373475d9f84 | intent=faq | message=My name is priyal
+2026-07-27 13:40:49,680 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:40:51,060 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:40:51,064 | INFO | CHAT | session=c8921f10-ef1c-4a4f-9989-a373475d9f84 | intent=scheduling | message=book appointment 
+2026-07-27 13:40:57,612 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:40:57,616 | INFO | CHAT | session=c8921f10-ef1c-4a4f-9989-a373475d9f84 | intent=None | message=priyal vyas
+2026-07-27 13:42:28,035 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:42:28,544 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:42:28,550 | INFO | CHAT | session=7be49b6f-5dd9-4e50-b0ff-39b122ed643e | intent=out_of_scope | message=My name is hi
+2026-07-27 13:42:39,545 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:42:40,096 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:42:40,100 | INFO | CHAT | session=7be49b6f-5dd9-4e50-b0ff-39b122ed643e | intent=scheduling | message=book an appointment 
+2026-07-27 13:42:42,569 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:45:44,128 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:45:44,152 | INFO | Use pytorch device_name: mps
+2026-07-27 13:45:44,152 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 13:45:45,685 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:45:45,686 | INFO | CHAT | session=1bb95608-8809-40a6-a50c-1737e4d273ba | intent=faq | message=My name is priyal
+2026-07-27 13:45:50,676 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:45:50,984 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:45:50,987 | INFO | CHAT | session=1bb95608-8809-40a6-a50c-1737e4d273ba | intent=scheduling | message=book an appointment 
+2026-07-27 13:45:54,663 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:45:54,930 | INFO | Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=1032830514626-uo4uvaaoumc6dgi73gm93qkrt84b70de.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A50526%2F&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar&state=CTSHhAc34qHQHu71q89YjqueGu4Xl0&code_challenge=oTo6cuLXYyCikxdMu1WPzaIhijnt05lVw3gFDn1jN50&code_challenge_method=S256&access_type=offline
+2026-07-27 13:46:26,802 | INFO | "GET /?state=CTSHhAc34qHQHu71q89YjqueGu4Xl0&iss=https://accounts.google.com&code=4/0AXEQxIBPbl72_zYXUMlnT2NYZ7M4BnKPcxhZravBVjHiS9T3dYnx2jLFhjMWY7HLz0hDfw&scope=https://www.googleapis.com/auth/calendar HTTP/1.1" 200 65
+2026-07-27 13:46:26,977 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:46:27,182 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:46:27,834 | INFO | CHAT | session=1bb95608-8809-40a6-a50c-1737e4d273ba | intent=None | message=priyal vyas 
+2026-07-27 13:46:49,082 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:46:49,203 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:46:49,690 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:46:49,693 | INFO | CHAT | session=1bb95608-8809-40a6-a50c-1737e4d273ba | intent=faq | message=different day 
+2026-07-27 13:47:04,600 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:47:04,778 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:47:04,781 | INFO | CHAT | session=1bb95608-8809-40a6-a50c-1737e4d273ba | intent=scheduling | message=can i get appointment on aug 4
+2026-07-27 13:50:15,178 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:50:15,201 | INFO | Use pytorch device_name: mps
+2026-07-27 13:50:15,201 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 13:50:16,557 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:50:16,558 | INFO | CHAT | session=6b3d2835-894d-46f4-a527-de16c827d80c | intent=faq | message=My name is priyal
+2026-07-27 13:50:21,079 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:50:21,354 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:50:21,357 | INFO | CHAT | session=6b3d2835-894d-46f4-a527-de16c827d80c | intent=scheduling | message=book appointment 
+2026-07-27 13:50:25,598 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:50:25,607 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:50:25,923 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:50:26,125 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:50:26,303 | INFO | CHAT | session=6b3d2835-894d-46f4-a527-de16c827d80c | intent=None | message=priyal vyas 
+2026-07-27 13:52:09,322 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:52:09,348 | INFO | Use pytorch device_name: mps
+2026-07-27 13:52:09,348 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 13:52:10,711 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:52:10,712 | INFO | CHAT | session=81444a3f-61b8-47ca-95f3-3d4c76edd9fc | intent=faq | message=My name is pri
+2026-07-27 13:52:16,826 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:52:17,118 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:52:17,121 | INFO | CHAT | session=81444a3f-61b8-47ca-95f3-3d4c76edd9fc | intent=scheduling | message=book appointment 
+2026-07-27 13:52:21,792 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:52:21,795 | INFO | CHAT | session=81444a3f-61b8-47ca-95f3-3d4c76edd9fc | intent=None | message=pri vyas 
+2026-07-27 13:52:28,454 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:52:28,463 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:52:28,779 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:52:29,170 | INFO | CHAT | session=81444a3f-61b8-47ca-95f3-3d4c76edd9fc | intent=None | message=aug 5th at 3 
+2026-07-27 13:52:40,980 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:52:40,983 | INFO | CHAT | session=81444a3f-61b8-47ca-95f3-3d4c76edd9fc | intent=None | message=do u take insurance 
+2026-07-27 13:53:21,630 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:21,653 | INFO | Use pytorch device_name: mps
+2026-07-27 13:53:21,653 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 13:53:23,078 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:53:23,079 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=faq | message=My name is priyal
+2026-07-27 13:53:29,723 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:29,848 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:53:30,472 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:30,475 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=faq | message=do u take insurance 
+2026-07-27 13:53:44,851 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:44,915 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:53:45,289 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:45,291 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=faq | message=what insurance do u take 
+2026-07-27 13:53:58,259 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:58,321 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:53:58,676 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:53:58,680 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=faq | message=what are your hours 
+2026-07-27 13:54:08,223 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:54:08,435 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:54:08,437 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=scheduling | message=can i book appointment 
+2026-07-27 13:54:22,776 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:54:22,779 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=None | message=priyal vyas 
+2026-07-27 13:54:31,035 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:54:31,045 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:54:31,293 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 13:54:31,665 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=None | message=august 6 at 2
+2026-07-27 13:54:36,400 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:54:36,403 | INFO | CHAT | session=9fb1dbef-07fe-487c-aad5-950f498608a8 | intent=None | message=thanks 
+2026-07-27 13:56:40,471 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:56:40,497 | INFO | Use pytorch device_name: mps
+2026-07-27 13:56:40,497 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 13:56:41,838 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:56:41,839 | INFO | CHAT | session=cb5ac688-3d5b-49ab-8637-98cc9b9700b8 | intent=faq | message=My name is pri
+2026-07-27 13:56:55,277 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:56:55,335 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 13:56:55,794 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 13:56:55,798 | INFO | CHAT | session=cb5ac688-3d5b-49ab-8637-98cc9b9700b8 | intent=faq | message=what are your hours 
+2026-07-27 13:58:39,341 | INFO | Retrying request to /openai/v1/chat/completions in 0.385340 seconds
+2026-07-27 13:58:58,184 | INFO | Retrying request to /openai/v1/chat/completions in 0.909162 seconds
+2026-07-27 14:13:39,409 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 14:13:39,414 | INFO | CHAT | session=cb5ac688-3d5b-49ab-8637-98cc9b9700b8 | intent=out_of_scope | message=book appointment 
+2026-07-27 14:13:39,659 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 14:13:40,305 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 14:13:40,305 | INFO | CHAT | session=cb5ac688-3d5b-49ab-8637-98cc9b9700b8 | intent=faq | message=hello 
+2026-07-27 16:53:27,753 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:28,092 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 16:53:28,093 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=faq | message=My name is pri
+2026-07-27 16:53:33,678 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:34,164 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:34,166 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=scheduling | message=book appointment 
+2026-07-27 16:53:37,593 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:37,595 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=None | message=pri vyas
+2026-07-27 16:53:43,289 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:43,601 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:43,608 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=scheduling | message=aug 17 at 5 
+2026-07-27 16:53:51,462 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:51,465 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=None | message=aug 21 at 5 
+2026-07-27 16:53:58,082 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:58,279 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:53:58,432 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 16:53:58,641 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 16:53:59,132 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=scheduling | message=aug 21 at 3 
+2026-07-27 16:54:05,782 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 16:54:06,017 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 16:54:06,017 | INFO | CHAT | session=b64525d4-bb13-47c0-b84e-fe76c241a504 | intent=faq | message=thank u 
+2026-07-27 17:01:11,640 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:11,898 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:11,902 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=out_of_scope | message=My name is priyal
+2026-07-27 17:01:24,672 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:24,677 | INFO | Use pytorch device_name: mps
+2026-07-27 17:01:24,677 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-27 17:01:26,195 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-27 17:01:26,595 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:26,597 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=faq | message=do u accept insurance 
+2026-07-27 17:01:35,355 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:35,648 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:35,651 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=scheduling | message=can i book an appointment 
+2026-07-27 17:01:39,773 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:39,777 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=None | message=priyal vyas 
+2026-07-27 17:01:44,566 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:44,765 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:44,773 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 17:01:45,133 | INFO | file_cache is only supported with oauth2client<4.0.0
+2026-07-27 17:01:45,589 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=scheduling | message=aug 21 at 4 
+2026-07-27 17:01:50,535 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:51,016 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-27 17:01:51,018 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=out_of_scope | message=great thanks 
