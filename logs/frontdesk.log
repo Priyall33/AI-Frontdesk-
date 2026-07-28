@@ -288,3 +288,34 @@
 2026-07-27 17:01:50,535 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-07-27 17:01:51,016 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-07-27 17:01:51,018 | INFO | CHAT | session=27e03f52-b990-4b9f-b1b5-1c35ad2f6b38 | intent=out_of_scope | message=great thanks 
+2026-07-28 14:48:55,273 | ERROR | VOICE ERROR | session=736d2ddf-b70e-47d2-8246-112b4fc1fe89 | 'dict' object has no attribute 'sample_rate'
+2026-07-28 14:49:05,584 | ERROR | VOICE ERROR | session=736d2ddf-b70e-47d2-8246-112b4fc1fe89 | 'dict' object has no attribute 'sample_rate'
+2026-07-28 14:51:50,384 | INFO | VOICE | session=84f9181d-e878-4dc5-9603-0dc1bb77ce67 | Deepgram connected
+2026-07-28 14:51:53,708 | INFO | VOICE STT | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | what are your hours
+2026-07-28 14:51:54,234 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:51:54,259 | INFO | Use pytorch device_name: mps
+2026-07-28 14:51:54,259 | INFO | Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-07-28 14:51:55,811 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-28 14:51:56,231 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:51:56,235 | INFO | VOICE TTS | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | Our clinic hours are from 8:00 a.m. to 5:00 p.m., Monday through Friday. We're c
+2026-07-28 14:52:02,635 | INFO | VOICE browser disconnected: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2026-07-28 14:52:09,011 | INFO | VOICE | session=84f9181d-e878-4dc5-9603-0dc1bb77ce67 | Deepgram connected
+2026-07-28 14:52:10,718 | INFO | VOICE STT | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | so thank you
+2026-07-28 14:52:11,105 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:52:11,310 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:52:11,314 | INFO | VOICE TTS | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | You're so welcome! Have a wonderful day and we'll see you soon!
+2026-07-28 14:52:15,453 | INFO | VOICE browser disconnected: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2026-07-28 14:52:18,038 | INFO | VOICE | session=84f9181d-e878-4dc5-9603-0dc1bb77ce67 | Deepgram connected
+2026-07-28 14:52:20,445 | INFO | VOICE STT | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | insurance
+2026-07-28 14:52:20,665 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:52:20,793 | INFO | HTTP Request: POST http://localhost:6333/collections/clinic_faqs/points/search "HTTP/1.1 200 OK"
+2026-07-28 14:52:21,311 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:52:21,313 | INFO | VOICE TTS | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | We do accept insurance here at the clinic. In fact, we have a wide range of plan
+2026-07-28 14:52:22,769 | ERROR | VOICE ERROR | session=84f9181d-e878-4dc5-9603-0dc1bb77ce67 | received 1011 (internal error) Deepgram did not receive audio data or a text message within the timeout window. See https://dpgr.am/net0001; then sent 1011 (internal error) Deepgram did not receive audio data or a text message within the timeout window. See https://dpgr.am/net0001
+2026-07-28 14:52:27,543 | ERROR | VOICE ERROR | session=84f9181d-e878-4dc5-9603-0dc1bb77ce67 | received 1011 (internal error) Deepgram did not receive audio data or a text message within the timeout window. See https://dpgr.am/net0001; then sent 1011 (internal error) Deepgram did not receive audio data or a text message within the timeout window. See https://dpgr.am/net0001
+2026-07-28 14:52:49,965 | INFO | VOICE STT | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | no that's all thanks
+2026-07-28 14:52:50,181 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:52:50,427 | INFO | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-28 14:52:50,430 | INFO | VOICE TTS | 84f9181d-e878-4dc5-9603-0dc1bb77ce67 | You're so welcome! Have a wonderful day and we'll see you soon!
+2026-07-28 14:52:55,438 | INFO | VOICE browser disconnected: (<CloseCode.NO_STATUS_RCVD: 1005>, '')
+2026-07-28 14:53:10,252 | ERROR | VOICE ERROR | session=84f9181d-e878-4dc5-9603-0dc1bb77ce67 | received 1011 (internal error) Deepgram did not receive audio data or a text message within the timeout window. See https://dpgr.am/net0001; then sent 1011 (internal error) Deepgram did not receive audio data or a text message within the timeout window. See https://dpgr.am/net0001

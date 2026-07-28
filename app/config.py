@@ -21,3 +21,7 @@ APP_ENV = os.getenv("APP_ENV", "development")
 
 # API Security 
 API_KEY = os.getenv("API_KEY")
+
+DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
+CARTESIA_API_KEY = os.getenv("CARTESIA_API_KEY")
+CARTESIA_VOICE_ID = os.getenv("CARTESIA_VOICE_ID", "a0e99841-438c-4a64-b679-ae501e7d6091")

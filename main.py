@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import CLINIC_ID, APP_ENV
 from app.api.routes import router 
+from fastapi import WebSocket 
+from app.voice.pipeline import run_voice_pipeline
+from app.logger import logger
 
 app = FastAPI(
     title="AI FrontDesk",
@@ -30,3 +33,11 @@ def root():
 @app.get("/health")
 def health():
     return {"status": "healthy"}
+
+@app.websocket("/ws/voice/{session_id}")
+async def voice_endpoint(websocket: WebSocket, session_id: str):
+    await websocket.accept()
+    try:
+        await run_voice_pipeline(websocket, session_id)
+    except Exception as e:
+        logger.error(f"VOICE ERROR | session={session_id} | {e}")
