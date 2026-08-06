@@ -5,23 +5,17 @@ import requests
 import streamlit as st
 import streamlit.components.v1 as components
 from dotenv import load_dotenv
-
 load_dotenv()
-
 API_URL = "http://localhost:8000"
 API_KEY = os.getenv("API_KEY", "")
-
 st.set_page_config(page_title="AI FrontDesk", page_icon="🏥", layout="centered")
-
 MD_ICON = '<svg width="44" height="44" viewBox="103.967 0.470703 54.779 40.941" xmlns="http://www.w3.org/2000/svg"><path d="M151.883 0.470703H110.83C107.04 0.470703 103.967 3.31501 103.967 6.82364V35.0589C103.967 38.5676 107.04 41.4119 110.83 41.4119H151.883C155.673 41.4119 158.746 38.5676 158.746 35.0589V6.82364C158.746 3.31501 155.673 0.470703 151.883 0.470703Z" fill="white"/><path d="M133.834 14.1177L133.325 15.1765L126.081 29.8824H123.793L116.421 15.1765V33.6471H113.498V9.29418H116.421L124.937 26.2354L133.707 8.23535V14.1177H133.834Z" fill="#16A4B2" stroke="#16A4B2" stroke-width="3" stroke-linecap="square"/><path d="M133.834 8.82324H141.333C146.798 8.82324 150.103 11.5291 150.103 16.8232V26.4703C150.103 28.1174 149.086 32.9409 140.951 32.9409H133.834V8.82324Z" fill="#16A4B2" stroke="#16A4B2" stroke-width="3"/><path d="M134.597 19.2939L133.326 18.588H140.825L140.571 19.1762L142.604 22.588L152.772 9.05859L155.441 14.7057L142.477 30.8233" fill="white"/></svg>'
 md_b64 = base64.b64encode(MD_ICON.encode()).decode()
 MD_AVATAR = f"data:image/svg+xml;base64,{md_b64}"
-
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 * { font-family: 'Space Grotesk', sans-serif !important; }
-
 .stApp { background: #16A4B2; }
 #MainMenu, footer, header { visibility: hidden; }
 @keyframes popDown {
@@ -70,7 +64,6 @@ st.markdown("""
 [data-testid="stChatInputSubmitButton"] { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
-
 st.markdown("""
 <div style="text-align:center; padding: 1.5rem 0 2rem 0;">
     <div style="
@@ -102,7 +95,6 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
 # ── session state (must be before voice component) ──────────────────────────
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -112,8 +104,7 @@ if "welcomed" not in st.session_state:
     st.session_state.welcomed = False
 if "patient_name" not in st.session_state:
     st.session_state.patient_name = None
-
-# ── voice component ──────────────────────────────────────────────────────────
+# ── voice component (ScriptProcessor → raw PCM → Deepgram linear16) ─────────
 voice_html = f"""
 <html><body style="margin:0;padding:0;text-align:center;font-family:sans-serif;">
 <button id="micBtn" onclick="toggleMic()"
@@ -123,7 +114,6 @@ voice_html = f"""
   🎤 Start Voice
 </button>
 <p id="status" style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:6px;">Speak with Alex</p>
-
 <script>
 const SESSION_ID = "{st.session_state.session_id}";
 let ws, audioCtx, processor, stream, isRecording = false;
@@ -142,10 +132,19 @@ async function startRecording() {{
       document.getElementById("micBtn").style.background = "rgba(255,100,100,0.4)";
     }};
     ws.onmessage = async (event) => {{
-      const ctx = new AudioContext();
-      const buffer = await ctx.decodeAudioData(event.data);
-      const src = ctx.createBufferSource();
-      src.buffer = buffer; src.connect(ctx.destination); src.start();
+      document.getElementById("status").textContent = "🔊 Alex speaking...";
+      try {{
+        const ctx = new AudioContext();
+        const buffer = await ctx.decodeAudioData(event.data.slice(0));
+        const src = ctx.createBufferSource();
+        src.buffer = buffer;
+        src.connect(ctx.destination);
+        src.onended = () => {{ document.getElementById("status").textContent = "🔴 Listening... speak now"; }};
+        src.start();
+      }} catch(e) {{
+        console.error("Audio error:", e);
+        document.getElementById("status").textContent = "🔴 Listening... speak now";
+      }}
     }};
     ws.onclose = () => resetUI();
     ws.onerror = () => {{
@@ -169,7 +168,7 @@ async function startRecording() {{
     source.connect(processor);
     processor.connect(audioCtx.destination);
     isRecording = true;
-  }} catch (err) {{
+  }} catch(err) {{
     document.getElementById("status").textContent = "Error: " + err.message;
   }}
 }}
@@ -189,13 +188,11 @@ function resetUI() {{
 </body></html>
 """
 components.html(voice_html, height=90)
-
 # ── welcome message ──────────────────────────────────────────────────────────
 if not st.session_state.welcomed:
     welcome = "Hello! Welcome to the clinic. May I have your name please?"
     st.session_state.messages.append({"role": "assistant", "content": welcome})
     st.session_state.welcomed = True
-
 # ── chat history ─────────────────────────────────────────────────────────────
 for msg in st.session_state.messages:
     if msg["role"] == "assistant":
@@ -206,14 +203,11 @@ for msg in st.session_state.messages:
     else:
         with st.chat_message("user"):
             st.write(msg["content"])
-
 # ── chat input ───────────────────────────────────────────────────────────────
 if prompt := st.chat_input("Ask about the clinic or book an appointment..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
-
-    # first message = patient name
     if st.session_state.patient_name is None:
         st.session_state.patient_name = prompt.strip()
         requests.post(
@@ -240,10 +234,8 @@ if prompt := st.chat_input("Ask about the clinic or book an appointment..."):
             except Exception:
                 answer = "I'm having trouble connecting. Please try again."
                 sources = []
-
         with st.chat_message("assistant", avatar=MD_AVATAR):
             st.write(answer)
             if sources:
                 st.caption(f"Source: {', '.join(sources)}")
-
         st.session_state.messages.append({"role": "assistant", "content": answer, "sources": sources})
