@@ -73,7 +73,7 @@ def test_faq_node_error_returns_friendly_message(mock_answer):
 @patch("app.agents.scheduling_agent.create_event", return_value={})
 @patch("app.agents.scheduling_agent.extract_entities")
 def test_scheduling_books_when_all_info_present(mock_extract, mock_create, mock_avail):
-    mock_extract.side_effect = lambda msg, entities: entities  # return entities unchanged
+    mock_extract.side_effect = lambda msg, entities: entities  
 
     from app.agents.scheduling_agent import scheduling_node
     state = {"message": "book it", "session_id": "test", "clinic_id": "clinic_001",
@@ -86,7 +86,7 @@ def test_scheduling_books_when_all_info_present(mock_extract, mock_create, mock_
 
 @patch("app.agents.scheduling_agent.extract_entities")
 def test_scheduling_asks_for_missing_info(mock_extract):
-    mock_extract.side_effect = lambda msg, entities: entities  # no entities extracted
+    mock_extract.side_effect = lambda msg, entities: entities 
 
     from app.agents.scheduling_agent import scheduling_node
     state = {"message": "I want an appointment", "session_id": "test", "clinic_id": "clinic_001",

@@ -47,11 +47,11 @@ def load_and_split(file_path: str):
     ext = os.path.splitext(file_path)[1].lower() 
     
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,   # each chunk max 500 characters
+        chunk_size=500,   
         chunk_overlap=50,
     )
 
-    # pick the right loader based on file type
+    
     if ext == ".pdf":
         loader = PyPDFLoader(file_path)
     elif ext == ".docx":
@@ -61,7 +61,7 @@ def load_and_split(file_path: str):
     elif ext == ".csv":
         loader = CSVLoader(file_path, encoding="latin-1")
     elif ext == ".xlsx":
-        # read excel, convert each row to a text document
+       
         df = pd.read_excel(file_path)
         documents = []
         for _, row in df.iterrows():
@@ -69,11 +69,11 @@ def load_and_split(file_path: str):
             documents.append(Document(page_content=text, metadata={"source": file_path}))
         return splitter.split_documents(documents)
     else:
-        raise ValueError(f"Unsupported file type: {ext}") # crash with clear message if unsupported
+        raise ValueError(f"Unsupported file type: {ext}") 
     
-    documents = loader.load() # read file and extract all text
+    documents = loader.load() 
 
-    return splitter.split_documents(documents) # returns list of chunks
+    return splitter.split_documents(documents) 
 
 def ingest_file(file_path: str, clinic_id: str = CLINIC_ID):
     
@@ -97,7 +97,7 @@ def ingest_file(file_path: str, clinic_id: str = CLINIC_ID):
         )
         points.append(point)
     
-    # upload all chunks to qdrant in one batch
+ 
     client.upsert(
         collection_name=QDRANT_COLLECTION,
         points=points,

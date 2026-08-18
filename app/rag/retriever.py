@@ -53,7 +53,7 @@ def search_faq(query: str, clinic_id: str = CLINIC_ID, top_k: int = 3):
 def answer_question(query: str, clinic_id: str = CLINIC_ID):
     results = search_faq(query, clinic_id)
 
-    # filter out low similarity scores
+  
     relevant_results = [r for r in results if r.score > 0.4]
 
     if not relevant_results:

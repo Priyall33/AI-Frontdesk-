@@ -95,7 +95,7 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
-# ── session state (must be before voice component) ──────────────────────────
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 if "session_id" not in st.session_state:
@@ -104,14 +104,14 @@ if "welcomed" not in st.session_state:
     st.session_state.welcomed = False
 if "patient_name" not in st.session_state:
     st.session_state.patient_name = None
-# ── voice component (ScriptProcessor → raw PCM → Deepgram linear16) ─────────
+
 voice_html = f"""
 <html><body style="margin:0;padding:0;text-align:center;font-family:sans-serif;">
 <button id="micBtn" onclick="toggleMic()"
   style="padding:10px 28px;font-size:14px;border-radius:50px;
          background:rgba(255,255,255,0.15);color:white;border:1px solid rgba(255,255,255,0.3);
          cursor:pointer;">
-  🎤 Start Voice
+   Start Voice
 </button>
 <p id="status" style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:6px;">Speak with Alex</p>
 <script>
@@ -127,7 +127,7 @@ async function startRecording() {{
     ws = new WebSocket(`ws://localhost:8000/ws/voice/${{SESSION_ID}}`);
     ws.binaryType = "arraybuffer";
     ws.onopen = () => {{
-      document.getElementById("status").textContent = "🔴 Listening... speak now";
+      document.getElementById("status").textContent = " Listening... speak now";
       document.getElementById("micBtn").textContent = "⏹ Stop Voice";
       document.getElementById("micBtn").style.background = "rgba(255,100,100,0.4)";
     }};
@@ -139,16 +139,16 @@ async function startRecording() {{
         const src = ctx.createBufferSource();
         src.buffer = buffer;
         src.connect(ctx.destination);
-        src.onended = () => {{ document.getElementById("status").textContent = "🔴 Listening... speak now"; }};
+        src.onended = () => {{ document.getElementById("status").textContent = "Listening... speak now"; }};
         src.start();
       }} catch(e) {{
         console.error("Audio error:", e);
-        document.getElementById("status").textContent = "🔴 Listening... speak now";
+        document.getElementById("status").textContent = "Listening... speak now";
       }}
     }};
     ws.onclose = () => resetUI();
     ws.onerror = () => {{
-      document.getElementById("status").textContent = "⚠️ Connection error";
+      document.getElementById("status").textContent = "Connection error";
       resetUI();
     }};
 
@@ -188,12 +188,12 @@ function resetUI() {{
 </body></html>
 """
 components.html(voice_html, height=90)
-# ── welcome message ──────────────────────────────────────────────────────────
+
 if not st.session_state.welcomed:
     welcome = "Hello! Welcome to the clinic. May I have your name please?"
     st.session_state.messages.append({"role": "assistant", "content": welcome})
     st.session_state.welcomed = True
-# ── chat history ─────────────────────────────────────────────────────────────
+
 for msg in st.session_state.messages:
     if msg["role"] == "assistant":
         with st.chat_message("assistant", avatar=MD_AVATAR):
@@ -203,7 +203,7 @@ for msg in st.session_state.messages:
     else:
         with st.chat_message("user"):
             st.write(msg["content"])
-# ── chat input ───────────────────────────────────────────────────────────────
+
 if prompt := st.chat_input("Ask about the clinic or book an appointment..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):

@@ -9,8 +9,8 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(message)s",
     handlers=[
-        logging.FileHandler("logs/frontdesk.log"),  # save to file
-        logging.StreamHandler(),                     # also print to terminal
+        logging.FileHandler("logs/frontdesk.log"),  
+        logging.StreamHandler(),                    
     ]
 )
 
