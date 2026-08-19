@@ -8,6 +8,7 @@ An AI-powered virtual receptionist for medical clinics. Patients can ask questio
 - Books appointments via Google Calendar
 - Maintains scheduling context across a conversation using session memory 
 - Routes messages intelligently between agents using LangGraph
+- voice agent that communicated like real receptionist 
 
 ## Tech Stack
 
